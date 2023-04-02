@@ -5,6 +5,7 @@
 services:
   vote:
     build: ./vote
+    image: framejframej6/vote:1.0
     # use python rather than gunicorn for local dev
     command: python app.py
     depends_on:
@@ -82,6 +83,7 @@ services:
   # docker compose --profile seed up -d
   seed:
     build: ./seed-data
+    image: framejframej6/seed:1.0
     profiles: ["seed"]
     depends_on:
       vote:
