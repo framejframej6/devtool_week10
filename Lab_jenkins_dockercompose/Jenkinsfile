@@ -42,7 +42,7 @@ pipeline {
             }
         }
         
-        stage('Trigger Slave job ') {
+        stage('Trigger Slave job') {
             steps {
                 dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
                     echo "Trigger : calling Slave job . . ."
