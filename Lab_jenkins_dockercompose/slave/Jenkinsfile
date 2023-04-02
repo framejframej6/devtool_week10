@@ -15,22 +15,6 @@ pipeline {
             sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
           }
         }
-        stage('Stop Stage') {
-            steps {
-                dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
-                    echo "Stop : Stop running image . . ."
-                    sh "docker-compose stop"
-                }
-            }
-        }
-        stage('Remove Stage') {
-            steps {
-                dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
-                    echo "Remove : Removing image . . ."
-                    sh "docker-compose down --rmi all --volumes || true"
-                }
-            }
-        }
         stage('Pull Stage') {
             steps {
                 dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
